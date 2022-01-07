@@ -6,3 +6,13 @@
     height: 100px;
     border-radius: 60px;
 }
+.like img {
+    width: 25px;
+    height: 25px;
+    border: solid 2px red;
+}
+.like{
+    font-family: "Georgia Pro";
+    color: red;
+    font-size: 20px
+}
