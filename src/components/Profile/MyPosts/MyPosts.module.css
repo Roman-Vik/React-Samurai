@@ -1,0 +1,10 @@
+.content {
+    grid-area: c;
+    background: linear-gradient(0.25turn, #3f87a6,#1eabe8 );
+}
+.header img{
+    width: 90%;
+}
+.item{
+    color: springgreen;
+}
