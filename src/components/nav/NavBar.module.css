@@ -1,9 +1,14 @@
 .nav {
-    color: white;
     font-family: "Georgia Pro Semibold";
     grid-area: n; /*псевдонимы*/
     background: linear-gradient(0.25turn,  #1eabe8, #ffffff   );
 }
-.item.elem{
-color: gold;
+
+.item{
+    color: white;
+    font-size: 30px;
+}
+
+.item a.activeLink {
+    color: red;
 }
