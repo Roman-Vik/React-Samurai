@@ -1,0 +1,24 @@
+.dialogs {
+    padding: 10px;
+    display: grid;
+    grid-template-columns:repeat(2, 2fr 10fr);
+}
+
+.dialogs__items .dialog {
+    font-size: 20px;
+
+}
+
+.dialog a.activeItem {
+    font-size: 30px;
+    color: springgreen;
+}
+
+.messages {
+   padding-left: 10px;
+    font-size: 20px;
+}
+
+.messages .message {
+
+}
