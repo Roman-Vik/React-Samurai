@@ -6,6 +6,7 @@ import NavBar from "./components/nav/NavBar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
 
+
 const App = () => {
     return (
         <Router>
@@ -14,8 +15,11 @@ const App = () => {
                 <NavBar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/dialogs" element={<Dialogs/>}/>
+                        {/*<Route path="/profile" element={<Profile/>}/>*/}
+                        {/*<Route path="/dialogs" element={<Dialogs/>}/>*/}
+
+                        <Route path="/profile" element={ () => <Dialogs/> }/>
+                        <Route path="/dialogs" element={ () => <Profile/> }/>
                     </Routes>
                 </div>
             </div>
