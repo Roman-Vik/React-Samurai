@@ -7,7 +7,9 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
 
 
-const App = () => {
+const App = (props) => {
+
+
     return (
         <Router>
             <div className="app-wrapper">
@@ -15,15 +17,16 @@ const App = () => {
                 <NavBar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        {/*<Route path="/profile" element={<Profile/>}/>*/}
-                        {/*<Route path="/dialogs" element={<Dialogs/>}/>*/}
-
-                        <Route path="/profile" element={ () => <Dialogs/> }/>
-                        <Route path="/dialogs" element={ () => <Profile/> }/>
+                        <Route path="/profile" element={<Profile
+                            state={props.state.profilePage}
+                            /*posts={props.state.profilePage.posts}*/ />}/>
+                        <Route path="/dialogs" element={<Dialogs
+                            state={props.state.dialogsPage}
+                            /*messages={props.state.dialogsPage.messages}
+                            dialogs={props.state.dialogsPage.dialog}*/ />}/>
                     </Routes>
                 </div>
             </div>
-
         </Router>
     );
 }

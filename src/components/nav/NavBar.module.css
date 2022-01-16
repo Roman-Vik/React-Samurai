@@ -12,3 +12,19 @@
 .item a.activeLink {
     color: gold;
 }
+
+.friends{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr  );
+}
+.friends__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.friends{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    color:  grey;
+}
