@@ -77,6 +77,9 @@ let state = {
     },
     navBar:{
 
+    },
+    text:{
+        t:'1'
     }
 }
 

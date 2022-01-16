@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns:repeat(2, 2fr 10fr);
 
+
 }
 
 .dialogs__items {
@@ -20,6 +21,11 @@
 .messages .dialog {
     color: white;
     font-size: 30px;
+}
+.photoProfile{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
 }
 
 .dialog a {
