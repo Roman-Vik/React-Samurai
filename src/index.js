@@ -4,12 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
 import state from "./redux/state";
+import {post} from "./redux/state";
+import {BrowserRouter as Router} from "react-router-dom";
 
-
+post('SamuraiJs.com')
 ReactDOM.render(
+    <Router>
     <React.StrictMode>
         <App state={state}   />
     </React.StrictMode>,
+    </Router>,
     document.getElementById('root')
 );
 // If you want to start measuring performance in your app, pass a function

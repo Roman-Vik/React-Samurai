@@ -1,22 +1,22 @@
 import React from "react";
 
 let state = {
-    profilePage:{
-        posts:[
+    profilePage: {
+        posts: [
             {
                 id: "1",
-                message:"Hi,how are you?",
+                message: "Hi,how are you?",
                 like: 15
             },
             {
                 id: "2",
-                message:"It`s my first post?",
+                message: "It`s my first post?",
                 like: 20
             }
         ],
     },
-    dialogsPage:{
-        dialogs:[
+    dialogsPage: {
+        dialogs: [
             {
                 ava: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
                 id: "1",
@@ -75,13 +75,19 @@ let state = {
             },
         ]
     },
-    navBar:{
+    navBar: {},
 
-    },
-    text:{
-        t:'1'
-    }
 }
+
+export let post = (postMessage) => {
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        like: 0,
+    }
+    return state.profilePage.posts.push(newPost)
+}
+
 
 
 export default state

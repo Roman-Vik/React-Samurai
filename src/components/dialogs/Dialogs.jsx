@@ -4,13 +4,11 @@ import DialogsItem from "./dialogItem/DialogsItem";
 import Message from "./message/Message";
 
 const Dialogs = (props) => {
-    let linkToMessage = React.createRef();
 
-    let message = () => {
-        let text = linkToMessage.current.value
-        alert(text)
+    let linkInElem = React.createRef()
+    let addMessage = () => {
+        alert(linkInElem.current.value)
     }
-
 
     let dialogsElements = props.state.dialogs.map((dialog) => <DialogsItem ava={dialog.ava} name={dialog.name}
                                                                            id={dialog.id}/>)
@@ -27,9 +25,9 @@ const Dialogs = (props) => {
                 {
                     messagesElements
                 }
-                <textarea cols="30" rows="5" ref={linkToMessage}> </textarea>
+                <textarea cols="30" rows="5" ref={linkInElem}> </textarea>
                 <div>
-                    <button onClick={message}>Добавить сообщение</button>
+                    <button onClick={addMessage}>Добавить сообщение</button>
                 </div>
             </div>
 

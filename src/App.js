@@ -11,7 +11,7 @@ const App = (props) => {
 
 
     return (
-        <Router>
+
             <div className="app-wrapper">
                 <Header/>
                 <NavBar/>
@@ -27,7 +27,6 @@ const App = (props) => {
                     </Routes>
                 </div>
             </div>
-        </Router>
     );
 }
 export default App;

@@ -5,11 +5,12 @@ import Post from "./Post/Posts";
 
 const MyPosts = (props) => {
 
-    let newPost = React.createRef();
-    let addPost = () => {
-        let text = newPost.current.value;
-        alert(text)
-    }
+let newPostElem = React.createRef()
+let addPost = () =>{
+    let text = newPostElem.current.value
+    alert(text)
+}
+
 
 
 
@@ -19,7 +20,7 @@ const MyPosts = (props) => {
         <div className={s.postsBlock}>
             <h3>My post</h3>
             <div>
-                <   textarea name="" id="" cols="30" rows="5" ref={newPost} >Напиши сообщение</textarea>
+                <   textarea name="" id="" cols="30" rows="5" ref={newPostElem}>Напиши сообщение</textarea>
                 <div>
                     <button onClick={addPost}>Add post</button>
                     <button>Post remove</button>
