@@ -76,18 +76,16 @@ let state = {
         ]
     },
     navBar: {},
-
 }
 
-export let post = (postMessage) => {
+
+export let addPost = (postMessage) => {
     let newPost = {
-        id: 5,
+        id: "7",
         message: postMessage,
-        like: 0,
+        like: 45
     }
-    return state.profilePage.posts.push(newPost)
+        state.profilePage.posts.push(newPost)
 }
-
-
 
 export default state

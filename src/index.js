@@ -4,14 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
 import state from "./redux/state";
-import {post} from "./redux/state";
 import {BrowserRouter as Router} from "react-router-dom";
+import {addPost} from "./redux/state"
 
-post('SamuraiJs.com')
+addPost('FLUX - Это зло!')
+
 ReactDOM.render(
     <Router>
     <React.StrictMode>
-        <App state={state}   />
+        <App state={state} addPost={addPost}  />
     </React.StrictMode>,
     </Router>,
     document.getElementById('root')

@@ -6,9 +6,10 @@ import Post from "./Post/Posts";
 const MyPosts = (props) => {
 
 let newPostElem = React.createRef()
+
 let addPost = () =>{
     let text = newPostElem.current.value
-    alert(text)
+    props.addPost(text)
 }
 
 
