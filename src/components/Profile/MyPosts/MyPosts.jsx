@@ -8,10 +8,15 @@ const MyPosts = (props) => {
 let newPostElem = React.createRef()
 
 let addPost = () =>{
-    let text = newPostElem.current.value
-    props.addPost(text)
+    props.addPost()
+    // props.updateNewPostText("")// Занулить textarea нужно в самом state
 }
 
+let onChange = () => {
+    let newText = newPostElem.current.value
+    props.updateNewPostText(newText)
+
+}
 
 
 
@@ -21,7 +26,7 @@ let addPost = () =>{
         <div className={s.postsBlock}>
             <h3>My post</h3>
             <div>
-                <   textarea name="" id="" cols="30" rows="5" ref={newPostElem}>Напиши сообщение</textarea>
+                <textarea onChange={onChange} value={props.newPostText}  name="" id="" cols="30" rows="5" ref={newPostElem}/>
                 <div>
                     <button onClick={addPost}>Add post</button>
                     <button>Post remove</button>

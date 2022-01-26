@@ -1,19 +1,26 @@
 import React from "react";
+import {rerenderEntireTree} from "../render";
 
 let state = {
     profilePage: {
         posts: [
             {
                 id: "1",
-                message: "Hi,how are you?",
+                message: "'FLUX - Это зло!'",
                 like: 15
             },
             {
                 id: "2",
-                message: "It`s my first post?",
-                like: 20
+                message: "Безумцы, не учите React!!!",
+                like: 200
+            },
+            {
+                id: "3",
+                message: "Я тупой как компонента!!",
+                like: 25
             }
         ],
+        newPostText: ""
     },
     dialogsPage: {
         dialogs: [
@@ -78,14 +85,21 @@ let state = {
     navBar: {},
 }
 
-
-export let addPost = (postMessage) => {
+// window.state = state
+export let addPost = () => {
     let newPost = {
         id: "7",
-        message: postMessage,
+        message: state.profilePage.newPostText,
         like: 45
     }
-        state.profilePage.posts.push(newPost)
+    state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ""
+    rerenderEntireTree(state)//2
+}
+export let updateNewPostText = (newText) => {
+
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)//2
 }
 
 export default state
