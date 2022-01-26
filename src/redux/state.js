@@ -1,4 +1,6 @@
 import React from "react";
+import {renderEntireTree} from "../render";
+
 
 let state = {
     profilePage: {
@@ -85,7 +87,8 @@ export let addPost = (postMessage) => {
         message: postMessage,
         like: 45
     }
-        state.profilePage.posts.push(newPost)
+    state.profilePage.posts.push(newPost)
+    renderEntireTree(state)
 }
 
 export default state

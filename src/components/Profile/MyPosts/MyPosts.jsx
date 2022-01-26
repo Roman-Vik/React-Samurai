@@ -11,10 +11,6 @@ let addPost = () =>{
     let text = newPostElem.current.value
     props.addPost(text)
 }
-
-
-
-
     let postsElements = props.posts.map((p)=> <Post message={p.message} like={p.like}/>)
 
     return (
