@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from "./App";
 import {BrowserRouter as Router} from "react-router-dom";
-import {addPost} from "./redux/state"
-
-addPost('FLUX - Это зло!')
+import state, {addPost, updatePostText} from "./redux/state"
 
 export let renderEntireTree = (state) => {
     ReactDOM.render(
         <Router>
             <React.StrictMode>
-                <App state={state} addPost={addPost}/>
+                <App state={state} addPost={addPost}  updatePostText={updatePostText}/>
             </React.StrictMode>,
         </Router>,
         document.getElementById('root')
     );
 }
+
+addPost('FLUX - Это зло!')
+
 
 
 

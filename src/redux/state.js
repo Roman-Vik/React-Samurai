@@ -16,6 +16,7 @@ let state = {
                 like: 20
             }
         ],
+        newPostText: 'new message'
     },
     dialogsPage: {
         dialogs: [
@@ -80,15 +81,23 @@ let state = {
     navBar: {},
 }
 
+window.state = state
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: "7",
-        message: postMessage,
+        message: state.profilePage.newPostText,
         like: 45
     }
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ""
     renderEntireTree(state)
+}
+
+export let updatePostText = (newText) => {
+state.profilePage.newPostText = newText
+    renderEntireTree(state) // отрисоввываем снова
+
 }
 
 export default state
