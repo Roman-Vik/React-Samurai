@@ -2,7 +2,6 @@ import React from "react";
 import s from "./Posts.module.css"
 
 const Post = (props) => {
-console.log(props.message)
     return (
         <div className={s.item}>
             <img src="https://zenitbol.ru/avatar/04/616426.jpg" alt="ava"/>

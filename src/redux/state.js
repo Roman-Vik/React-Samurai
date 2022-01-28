@@ -1,5 +1,8 @@
-import React from "react";
-import {renderEntireTree} from "../render";
+    import React from "react";
+
+ let renderEntireTree = () => {
+     console.log("State was changes")
+ }
 
 
 let state = {
@@ -83,7 +86,7 @@ let state = {
 
 window.state = state
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: "7",
         message: state.profilePage.newPostText,
@@ -94,10 +97,14 @@ export let addPost = () => {
     renderEntireTree(state)
 }
 
-export let updatePostText = (newText) => {
+export const updatePostText = (newText) => {
 state.profilePage.newPostText = newText
     renderEntireTree(state) // отрисоввываем снова
-
 }
+
+export const subscribe = (observer)=> {
+renderEntireTree = observer //наблюдатель  паттерн
+}
+
 
 export default state
