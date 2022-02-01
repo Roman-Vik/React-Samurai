@@ -1,5 +1,5 @@
 import React from "react";
-
+import {type} from "@testing-library/user-event/dist/type";
 
 export let store = {
     _state: {
@@ -80,15 +80,18 @@ export let store = {
         },
         navBar: {},
     },
-    getState(){
-        debugger
-        return this._state
-    },
     _callSubscriber() {
         console.log("State was changes")
     },
-    addPost() {
-        debugger
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
+        store._callSubscriber = observer //наблюдатель  паттерн
+    },
+
+   /* addPost() {
         let newPost = {
             id: "7",
             message: this._state.profilePage.newPostText,
@@ -97,13 +100,37 @@ export let store = {
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostText = ""
         this._callSubscriber(this._state)
-    },
-    updatePostText(newText) {
+    },*/
+    _updatePostText(newText) {
         this._state.profilePage.newPostText = newText
         store._callSubscriber(this._state) // отрисоввываем снова
     },
-    subscribe(observer) {
-        store._callSubscriber = observer //наблюдатель  паттерн
+    dispatch(action) {
+        if(action.type === "ADD-POST"){
+            let newPost = {
+                id: "7",
+                message: this._state.profilePage.newPostText,
+                like: 45
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ""
+            this._callSubscriber(this._state)
+        } else if (action.type === "UPDATE-NEW-POST-TEXT"){
+           this._updatePostText(action.newText)
+        }
+
+    }
+}
+
+export const addPostActionCreator = () => {
+    return {
+        type: "ADD-POST"
+    }
+}
+export const updateNewPostActionCreator = (changeText) => {
+    return {
+        type: "UPDATE-NEW-POST-TEXT",
+        newText: changeText,
     }
 }
 
