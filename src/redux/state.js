@@ -81,12 +81,14 @@ export let store = {
         navBar: {},
     },
     getState(){
+        debugger
         return this._state
     },
     _callSubscriber() {
         console.log("State was changes")
     },
     addPost() {
+        debugger
         let newPost = {
             id: "7",
             message: this._state.profilePage.newPostText,
