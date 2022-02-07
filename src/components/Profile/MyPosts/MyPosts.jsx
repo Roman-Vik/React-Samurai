@@ -7,7 +7,11 @@ const MyPosts = (props) => {
     let newPostElem = React.createRef()
 
     let addPost = () => {
-        props.dispatch(addPostActionCreator())
+        //props.dispatch(addPostActionCreator())
+
+        props.dispatch( {
+            type: "ADD-POST"
+        })
 
     }
     let postsElements = props.posts.map((p) => <Post message={p.message} like={p.like}/>)

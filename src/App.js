@@ -5,11 +5,10 @@ import Header from "./components/header/Header";
 import NavBar from "./components/nav/NavBar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
+import store from "./redux/state";
+
 const App = (props) => {
-
-
     return (
-
         <div className="app-wrapper">
             <Header/>
             <NavBar/>
@@ -18,12 +17,10 @@ const App = (props) => {
                     <Route path="/profile" element={
                         <Profile
                             profilePage={props.state.profilePage}
-                            dispatch={props.dispatch}
-                            /*posts={props.state.profilePage.posts}*/ />}/>
+                            dispatch={props.dispatch}/>}/>
                     <Route path="/dialogs" element={<Dialogs
-                        state={props.state.dialogsPage}
-                        /*messages={props.state.dialogsPage.messages}
-                        dialogs={props.state.dialogsPage.dialog}*/ />}/>
+                        store={store}
+                    />}/>
                 </Routes>
             </div>
         </div>
