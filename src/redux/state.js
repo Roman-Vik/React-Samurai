@@ -1,8 +1,8 @@
 import React from "react";
 import {type} from "@testing-library/user-event/dist/type";
-
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY" //Имя Action
-const SEND_MESSAGE = "SEND-MESSAGE"
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import navBarReducer from "./navBar-reducer";
 
 export let store = {
     _state: {
@@ -108,45 +108,15 @@ export let store = {
         store._callSubscriber(this._state) // отрисоввываем снова
     },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id: "7",
-                message: this._state.profilePage.newPostText,
-                like: 45
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ""
-            this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-            this._updatePostText(action.newText)
-        }else if (action.type === "UPDATE-NEW-MESSAGE-BODY"){
-            this._state.dialogsPage.newMessageBody = action.body // чему равно?
-            this._callSubscriber(this._state)
-        }else if (action.type === "SEND-MESSAGE"){
-           let body = this._state.dialogsPage.newMessageBody
-            this._state.dialogsPage.newMessageBody = ""
-            this._state.dialogsPage.messages.push({
-                id: "7",
-                message: body
-            })
-            this._callSubscriber(this._state)
-        }
-    }
-}
-export const addPostActionCreator = () => {
-    return {
-        type: "ADD-POST"
-    }
-}
-export const updateNewPostActionCreator = (changeText) => {
-    return {
-        type: "UPDATE-NEW-POST-TEXT",
-        newText: changeText,
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.navBar = navBarReducer(this._state.navBar, action)
+        this._callSubscriber(this._state)
+
     }
 }
 
-export const sendMessageCreator = () => ({type: "SEND-MESSAGE"})
-export const updateNewMessageBodyCreator = (body) => ({type: "UPDATE-NEW-MESSAGE-BODY", body: body })
+
 
 window.state = store
 export default store
