@@ -5,9 +5,10 @@ import Header from "./components/header/Header";
 import NavBar from "./components/nav/NavBar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
-import store from "./redux/state";
+import store from "./redux/store";
 
 const App = (props) => {
+    debugger
     return (
         <div className="app-wrapper">
             <Header/>
