@@ -14,7 +14,7 @@ let initialState =  {
             like: 20
         }
     ],
-    newPostText: ''
+    newPostText: '1'
 }
 
 const profileReducer = (state = initialState, action) => {
