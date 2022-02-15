@@ -8,7 +8,6 @@ import Dialogs from "./components/dialogs/Dialogs";
 import store from "./redux/store";
 
 const App = (props) => {
-    debugger
     return (
         <div className="app-wrapper">
             <Header/>
@@ -20,7 +19,7 @@ const App = (props) => {
                             profilePage={props.state.profilePage}
                             dispatch={props.dispatch}/>}/>
                     <Route path="/dialogs" element={<Dialogs
-                        store={store}
+                        store={props.store}
                     />}/>
                 </Routes>
             </div>
